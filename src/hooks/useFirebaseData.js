@@ -125,10 +125,12 @@ export async function seedFirebaseIfEmpty(hospitalId, hospitalData, ambulanceDat
   try {
     const { db, rtdb } = await getFirebaseModules();
 
-    const hospSnap = await rtdb.get(rtdb.ref(db, `/hospitals/${hospitalId}`));
-    if (!hospSnap.exists()) {
-      await rtdb.set(rtdb.ref(db, `/hospitals/${hospitalId}`), hospitalData);
-      console.log('[Firebase] Seeded hospital:', hospitalId);
+    const hospSnap = await rtdb.get(rtdb.ref(db, '/hospitals'));
+    if (!hospSnap.exists() || Object.keys(hospSnap.val() || {}).length < 2) {
+      // Import HOSPITAL_DATA here to seed all of them
+      const { HOSPITAL_DATA } = await import('../lib/mockData');
+      await rtdb.set(rtdb.ref(db, '/hospitals'), HOSPITAL_DATA);
+      console.log('[Firebase] Seeded all hospitals');
     }
 
     const ambSnap = await rtdb.get(rtdb.ref(db, '/ambulance/location'));

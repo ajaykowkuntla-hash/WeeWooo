@@ -8,6 +8,10 @@ export const HOSPITAL_DATA = {
     address: 'Jubilee Hills, Hyderabad',
     phone: '+91-40-23607777',
     resources: { availableBeds: 48, icuBeds: 12, ventilators: 8, doctorsAvailable: 22 },
+    bloodUnits: 45,
+    specialization: ['trauma', 'cardiac', 'pediatric'],
+    occupancy: 65,
+    emergencyReady: true
   },
   'hospital-002': {
     id: 'hospital-002',
@@ -16,6 +20,10 @@ export const HOSPITAL_DATA = {
     address: 'Secunderabad, Hyderabad',
     phone: '+91-40-44885000',
     resources: { availableBeds: 32, icuBeds: 7, ventilators: 5, doctorsAvailable: 15 },
+    bloodUnits: 20,
+    specialization: ['cardiac', 'stroke'],
+    occupancy: 78,
+    emergencyReady: true
   },
   'hospital-003': {
     id: 'hospital-003',
@@ -24,6 +32,10 @@ export const HOSPITAL_DATA = {
     address: 'Somajiguda, Hyderabad',
     phone: '+91-40-45674567',
     resources: { availableBeds: 0, icuBeds: 0, ventilators: 2, doctorsAvailable: 8 },
+    bloodUnits: 5,
+    specialization: ['trauma', 'burn'],
+    occupancy: 100,
+    emergencyReady: false
   },
   'hospital-004': {
     id: 'hospital-004',
@@ -32,6 +44,10 @@ export const HOSPITAL_DATA = {
     address: 'Banjara Hills, Hyderabad',
     phone: '+91-40-30418888',
     resources: { availableBeds: 15, icuBeds: 3, ventilators: 2, doctorsAvailable: 12 },
+    bloodUnits: 12,
+    specialization: ['stroke', 'cardiac'],
+    occupancy: 85,
+    emergencyReady: true
   },
   'hospital-005': {
     id: 'hospital-005',
@@ -40,6 +56,10 @@ export const HOSPITAL_DATA = {
     address: 'Gachibowli, Hyderabad',
     phone: '+91-40-42444222',
     resources: { availableBeds: 120, icuBeds: 45, ventilators: 30, doctorsAvailable: 50 },
+    bloodUnits: 80,
+    specialization: ['trauma', 'cardiac', 'stroke', 'pediatric'],
+    occupancy: 40,
+    emergencyReady: true
   },
   'hospital-006': {
     id: 'hospital-006',
@@ -48,6 +68,10 @@ export const HOSPITAL_DATA = {
     address: 'Madhapur, Hyderabad',
     phone: '+91-40-68334455',
     resources: { availableBeds: 25, icuBeds: 5, ventilators: 4, doctorsAvailable: 18 },
+    bloodUnits: 15,
+    specialization: ['accident', 'pediatric'],
+    occupancy: 70,
+    emergencyReady: true
   },
 };
 

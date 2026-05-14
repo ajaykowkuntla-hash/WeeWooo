@@ -1,6 +1,7 @@
 'use client';
 // src/app/page.js — Single useAuth() source of truth
 
+import { useEffect, useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import LoginPage from '../components/auth/LoginPage';
 import DashboardShell from '../components/dashboard/DashboardShell';
@@ -8,9 +9,13 @@ import ErrorBoundary from '../components/ErrorBoundary';
 
 export default function Home() {
   const { user, loading, error, login, logout } = useAuth();
+  const [isMounted, setIsMounted] = useState(false);
 
-  // Only show spinner when a login action is in progress (not on initial load)
-  if (loading) {
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted || loading) {
     return (
       <div style={{
         minHeight: '100vh',
@@ -18,7 +23,7 @@ export default function Home() {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        background: '#000',   // hardcoded — CSS vars don't resolve in inline styles during SSR
+        background: '#000',
         gap: 14,
       }}>
         <div style={{
@@ -29,7 +34,7 @@ export default function Home() {
           animation: 'spin 0.65s linear infinite',
         }} />
         <span style={{ fontSize: '0.7rem', color: '#6E7380', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-          Signing in
+          Loading
         </span>
       </div>
     );
